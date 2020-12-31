@@ -294,6 +294,12 @@ Custom Cost functions work
 ## LICENSE
 Same as Ceres New BSD.
 
+## ADD
+Add PnPCostFunction
+Add more loss function wrapper
+### TODOs
+- [] wrapper for ComposedLoss and ScaledLoss
+
 ## Credit
 This is just a wrapper over the hard work of the main 
 [Ceres](http://ceres-solver.org/) project. All the examples derive from ceres-solver/examples

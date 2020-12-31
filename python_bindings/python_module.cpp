@@ -891,19 +891,32 @@ PYBIND11_MODULE(PyCeres, m) {
              }
            });
 
-  py::class_<ceres::TrivialLoss>(m, "TrivialLoss")
-      .def(py::init<>());
-
-  py::class_<ceres::HuberLoss>(m, "HuberLoss")
-      .def(py::init<double>());
-  py::class_<ceres::SoftLOneLoss>(m, "SoftLOneLoss")
-      .def(py::init<double>());
-
-  py::class_<ceres::CauchyLoss>(m, "CauchyLoss")
-      .def(py::init<double>());
-
   py::class_<ceres::LossFunction, PyLossFunction>(m, "LossFunction")
       .def(py::init<>());
+
+  py::class_<ceres::TrivialLoss, ceres::LossFunction>(m, "TrivialLoss")
+      .def(py::init<>());
+
+  py::class_<ceres::HuberLoss, ceres::LossFunction>(m, "HuberLoss")
+      .def(py::init<double>());
+
+  py::class_<ceres::SoftLOneLoss, ceres::LossFunction>(m, "SoftLOneLoss")
+      .def(py::init<double>());
+
+  py::class_<ceres::CauchyLoss, ceres::LossFunction>(m, "CauchyLoss")
+      .def(py::init<double>());
+
+  py::class_<ceres::ArctanLoss, ceres::LossFunction>(m, "ArctanLoss")
+      .def(py::init<double>());
+
+  py::class_<ceres::TolerantLoss, ceres::LossFunction>(m, "TolerantLoss")
+      .def(py::init<double, double>());
+
+  //py::class_<ceres::ComposedLoss, ceres::LossFunction>(m, "ComposedLoss")
+  //    .def(py::init<ceres::LossFunction, ceres::Ownership, ceres::LossFunction, ceres::Ownership>());
+
+  //py::class_<ceres::ScaledLoss, ceres::LossFunction>(m, "ScaledLoss")
+  //    .def(py::init<ceres::LossFunction, double, ceres::Ownership>());
 
   py::class_<ceres::Solver::Summary> solver_summary(m, "Summary");
   using s_summary=ceres::Solver::Summary;
