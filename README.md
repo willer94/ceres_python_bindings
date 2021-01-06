@@ -55,6 +55,13 @@ end it should output
 Build Ceres as you would normally. To specifically build the bindings you should
  call _make PyCeres_ .
 
+**CONDA PYTHON ENV**， cmake with python executable and lib
+```
+cmake -DPYTHON_EXECUTABLE=/home/ubuntu/anaconda3/envs/open-mmlab/bin/python  -DPYTHON_LIBRARY=/home/ubuntu/anaconda3/envs/open-mmlab/lib/ ..
+cp lib/PyCeres*.so /home/ubuntu/anaconda3/envs/open-mmlab/lib/python3.7/site-packages
+```
+
+
 ### Build seperately and link to Ceres
 
 The CMakeLists.txt for this option still needs more work. For now you have to 
